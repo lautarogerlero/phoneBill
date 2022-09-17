@@ -1,6 +1,6 @@
 from calls import Local, National, International
 
-option = 0 
+option = 0 # User's choice from the first menu
 extra = 0 # Extra fare 
 bill = 100 # Monthly fare
 calls = 0 # Amount of calls made in a month
@@ -8,7 +8,7 @@ localCalls = 0 # Amount of local calls made in a month
 nationals = 0 # Amount of national calls made in a month
 internationals = 0 # Amount of international calls made in a month
 totalMinutes = 0 # Amount of minutes called in a month
-minutes = 0
+minutes = 0 # Amount of minutes of one call
 
 provinces = {
     # dictionary to link the provinces with a fare
@@ -48,7 +48,7 @@ while option != 3:
         option = int(input("Please choose an option: "))
 
         if option == 1:
-            call = ""
+            call = "" # To register the type of call
             while call != "a" and call != "b" and call != "c":
                 print("Which type of call do you want to register?")
                 print("a. Local")
@@ -58,12 +58,12 @@ while option != 3:
 
                 if call == "a":
                     minutes = int(input("Write the duration of the call: "))
-                    workingDay = ""
+                    workingDay = "" # To register if the call is made in a working day
                     while workingDay != "y" and workingDay != "n":
                         # Ask if it is a working day to get the fare
                         workingDay = input("Is it a working day? (y/n): ").lower()
                         if workingDay == "y":
-                            time = ""
+                            time = "" # To register the time of the call
                             while time != "y" and time != "n":
                                 # Ask if it is between 08 and 20hs to get the fare
                                 time = input("Is it between 08:00 and 20:00? (y/n): ").lower()
@@ -80,7 +80,7 @@ while option != 3:
                     local = Local(minutes, extra) # Instance the Local class
                     print(local) # Show the information of that call
                     bill += local.getBill(minutes, extra) # Get the bill for that call
-                    calls += 1
+                    calls += 1 
                     localCalls += 1
                     totalMinutes += minutes
                     extra = 0 # Reset value
